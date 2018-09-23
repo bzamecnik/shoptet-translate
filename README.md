@@ -39,6 +39,19 @@ mkvirtualenv shoptet_translate
 pip install -e .
 ```
 
+On Ubuntu it needs to run via xvfb since native QT headless doesn't work well
+in Debian. [Workaround](https://github.com/JazzCore/python-pdfkit/wiki/Using-wkhtmltopdf-without-X-server):
+
+```bash
+sudo apt install wkhtmltopdf
+sudo apt install xvfb
+sudo printf '#!/bin/bash\nxvfb-run -a --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf -q $*' > /usr/bin/wkhtmltopdf.sh
+sudo chmod a+x /usr/bin/wkhtmltopdf.sh
+sudo ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
+# test it
+wkhtmltopdf http://www.google.com output.pdf
+``` 
+
 ## Usage
 
 Login to Shoptet admin in your browser and find out the PHP session id and
