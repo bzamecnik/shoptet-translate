@@ -1,0 +1,52 @@
+cz,en
+Faktura - Daňový doklad č.,Invoice - tax receipt no.
+Dodavatel,Supplier
+DIČ,Tax identification no.
+Spisová značka: C 175536 - Městský soud v Praze,"File No. 175536, Section C - Municipal Court of Prague"
+Telefon,Phone
+E-mail,E-mail
+Datum vystavení,Date
+Datum splatnosti,Due date
+Datum zdanitelného plnění,Date of taxable supplies
+Číslo účtu,Bank account
+Forma úhrady,Payment type
+Kartou,Card
+Variabilní symbol,Variable symbol
+Konstantní symbol,Constant symbol
+Specifický symbol,Specific symbol
+Objednávka č.,Order no.
+Ze dne,Date
+Příjemce,Customer
+Doručovací adresa,Delivery address
+Číslo dodávky,Delivery identification
+Množství,Amount
+Cena za kus,Unit price
+Cena,Base price
+Sleva,Discount
+Celková cena vč. DPH,Total price
+Položky objednávky,Items
+ks,pc
+Kč,CZK
+Shrnutí,Summary
+K ZAPLACENÍ,Total to payment
+Vydáno,Issued
+Neplaťte,Do not pay
+Poznámka: POZOR - NOVÉ ČÍSLO ÚČTU - new account number,Note: New account number.
+Součet DPH,VAT recapitulation
+Bez DPH,Base
+Sazba,VAR rate
+Vystavil,Issued by
+Sériové číslo,Serial no.
+Pokladna,Counter
+Provozovna,Branch
+Režim,EET mode
+Běžný režim,Normal mode
+Razítko,Signature
+Vystaveno softwarem pro internetové obchodování Shoptet.cz,Issued by e-shop software Shoptet.cz
+Zálohová faktura - Kód,Advance invoice - Code
+"Daňový doklad je v režimu přenesené daňové povinnosti (reverse charge), daň je povinen odvést zákazník v souladu s článkem 196 směrnice Rady 2006/112/ES.","The tax document is under reverse charge, the tax is payable by the customer in accordance with Article 196 of Council Directive 2006/112 / EC."
+Souhrn DPH ve výchozí měně ,VAT sum in the default currency
+kurz,rate
+IČ,Identification no.
+DPH %,VAT rate %
+DPH,VAT
