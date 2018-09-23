@@ -3,8 +3,11 @@ import os
 import unicodedata
 
 import pandas as pd
-
 import pdfkit
+
+import shoptet_translate
+
+root_dir = os.path.abspath(os.path.dirname(shoptet_translate.__file__))
 
 
 class InvoiceTranslator:
@@ -39,7 +42,9 @@ class InvoiceTranslator:
 
 
 class TextTranslator:
-    def __init__(self, dict_path='data/translations.csv'):
+    def __init__(self, dict_path=None):
+        if dict_path is None:
+            dict_path = os.path.join(root_dir, 'data/translations.csv')
         self.translations = pd.read_csv(dict_path)
 
         # Both the document and the translation string need to be normalized
