@@ -32,7 +32,7 @@ K ZAPLACENÍ,Total to payment
 Vydáno,Issued
 Neplaťte,Do not pay
 Poznámka: POZOR - NOVÉ ČÍSLO ÚČTU - new account number,Note: New account number.
-Součet DPH,VAT recapitulation
+Součet DPH,VAT sum
 Bez DPH,Base
 Sazba,VAR rate
 Vystavil,Issued by
@@ -45,8 +45,9 @@ Razítko,Signature
 Vystaveno softwarem pro internetové obchodování Shoptet.cz,Issued by e-shop software Shoptet.cz
 Zálohová faktura - Kód,Advance invoice - Code
 "Daňový doklad je v režimu přenesené daňové povinnosti (reverse charge), daň je povinen odvést zákazník v souladu s článkem 196 směrnice Rady 2006/112/ES.","The tax document is under reverse charge, the tax is payable by the customer in accordance with Article 196 of Council Directive 2006/112 / EC."
-Souhrn DPH ve výchozí měně ,VAT sum in the default currency
+Souhrn DPH ve výchozí měně,VAT sum in the default currency
 kurz,rate
 IČ,Identification no.
 DPH %,VAT rate %
 DPH,VAT
+Převodem,Wire transfer
