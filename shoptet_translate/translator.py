@@ -44,7 +44,7 @@ class InvoiceTranslator:
 class TextTranslator:
     def __init__(self, dict_path=None):
         if dict_path is None:
-            dict_path = os.path.join(root_dir, 'data/translations.csv')
+            dict_path = os.path.join(root_dir, 'translations.csv')
         self.translations = pd.read_csv(dict_path)
 
         # Both the document and the translation string need to be normalized

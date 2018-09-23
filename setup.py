@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(name='shoptet_translate',
-      version='0.0.3',
+      version='0.0.4',
       description='Translate Shoptet invoices',
       url='https://github.com/bzamecnik/shoptet-invoice-en',
       author='Bohumir Zamecnik',
       author_email='bohumir.zamecnik@gmail.com',
       license='MIT',
       packages=['shoptet_translate'],
-      package_data={'shoptet_translate': ['data/translations.csv']},
+      package_data={'shoptet_translate': ['translations.csv']},
       zip_safe=False,
       install_requires=[
       ],
