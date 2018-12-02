@@ -1,7 +1,7 @@
 cz,en
 Faktura - Daňový doklad č.,Invoice - tax receipt no.
 Dodavatel,Supplier
-DIČ,Tax identification no.
+DIČ,VAT ID
 Spisová značka: C 175536 - Městský soud v Praze,"File No. 175536, Section C - Municipal Court of Prague"
 Telefon,Phone
 E-mail,E-mail
@@ -51,3 +51,11 @@ IČ,Identification no.
 DPH %,VAT rate %
 DPH,VAT
 Převodem,Wire transfer
+Poznámka,Note
+Zasíláme fakturu k uhrazení zálohy dle vaší objednávky,We send a proforma invoice for deposit payment according to your order
+Opravný daňový doklad k daňovému dokladu č.,Credit note for invoice no.
+Zálohová faktura č.,Proforma invoice no.
+Dodací list č.,Delivery note no.
+Opravný daňový doklad č.,Credit note no.
+Doplněk,Appendix
+Převzal,Taken over by
