@@ -11,7 +11,7 @@ another (using `beautifulsoup`) and then render it to PDF again (using `pdfkit`)
 
 ## Requirements
 
-### pdfkit 
+### pdfkit
 
 https://pypi.org/project/pdfkit/
 
@@ -50,20 +50,20 @@ sudo chmod a+x /usr/bin/wkhtmltopdf.sh
 sudo ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
 # test it
 wkhtmltopdf http://www.google.com output.pdf
-``` 
+```
 
 ## Usage
 
 Login to Shoptet admin in your browser and find out the PHP session id and
 server id of the sticky session.
 
-Then call the script with the numeric invoice id and the login identifiers. 
+Then call the script with the numeric invoice id and the login identifiers.
 
 ```
-shoptet_translate -i INVOICE_ID -p PHPSESSID -s SRV_ID
+shoptet_translate -i INVOICE_ID -t INVOICE_TYPE -p PHPSESSID -s SRV_ID
 ```
 
 It will download the invoice HTML, clean it up, translate from Czech to English
-and convert to PDF. By default it's saved to `./data/invoice-INVOICE_ID.html`.
+and convert to PDF. By default it's saved to `./data/INVOICE_TYPE-INVOICE_ID.html`.
 
 If you need to change the translations, modify `data/translations.csv`.
