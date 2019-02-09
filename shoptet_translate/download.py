@@ -1,8 +1,9 @@
 import argparse
 import os
 
-import bs4
 import requests
+
+from .cleanup import cleanup_html
 
 invoice_types = ['invoice', 'proformaInvoice', 'deliveryNote', 'creditNote']
 
@@ -30,23 +31,6 @@ def download_invoice(invoice_id, invoice_type, html_path, domain, cookies):
         f.write(html)
 
     return html_path
-
-
-def cleanup_html(html, domain):
-    # Make links to script/image resource absolute (then there's no need to download them locally).
-    # NOTE: These resources don't need authorization.
-    html = html.replace('href="/cms/', 'href="%s/cms/' % domain)
-    html = html.replace('src="/user/', 'src="%s/user/' % domain)
-
-    page = bs4.BeautifulSoup(html, features='html5lib')
-    # remove print dialog on load
-    del page.body['onload']
-
-    # remove scripts
-    for s in page.find_all('script'):
-        s.decompose()
-
-    return page.prettify()
 
 
 def parse_args():
