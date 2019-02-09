@@ -1,7 +1,9 @@
 import argparse
 import os
+import re
 import unicodedata
 
+import bs4
 import pandas as pd
 import pdfkit
 
@@ -67,9 +69,12 @@ class TextTranslator:
 
     def translate(self, html_cz):
         # TODO: We should better mark translated strings and ignore them from further translation.
-        html_en = unicodedata.normalize('NFC', html_cz)
+        # NOTE: Using BeautifulSoup in order to translate only texts, not some HTML code.
+        soup = bs4.BeautifulSoup(unicodedata.normalize('NFC', html_cz), features='html5lib')
         for i, row in self.translations.iterrows():
-            html_en = html_en.replace(row['cz'], row['en'])
+            for string_tag in soup.find_all(string=re.compile(re.escape(row['cz']))):
+                string_tag.parent.string = string_tag.replace(row['cz'], row['en'])
+        html_en = soup.prettify()
         return html_en
 
 
