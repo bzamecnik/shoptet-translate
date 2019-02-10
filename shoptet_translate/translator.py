@@ -79,6 +79,6 @@ class TextTranslator:
         soup = bs4.BeautifulSoup(unicodedata.normalize('NFC', html_cz), features='html5lib')
         for i, row in self.translations.iterrows():
             for string_tag in soup.find_all(string=re.compile(re.escape(row['cz']))):
-                string_tag.parent.string = string_tag.replace(row['cz'], row['en'])
+                string_tag.replace_with(str(string_tag).replace(row['cz'], row['en']))
         html_en = soup.prettify()
         return html_en
