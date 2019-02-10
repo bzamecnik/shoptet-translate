@@ -9,7 +9,7 @@ import pdfkit
 
 import shoptet_translate
 
-root_dir = os.path.abspath(os.path.dirname(shoptet_translate.__file__))
+root_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class InvoiceTranslator:
