@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Translate Shoptet invoices from Czech to English</h1>
+
+<h2>Step 1 - Download from Shoptet</h2>
+
+<p>First download the invoice from Shoptet as a HTML page.</p>
+
+<p>Go to detail of the invoice, click <code>Tisk -&gt; Standardní</code></p>
+
+<h2>Step 2 - Translate</h2>
+
+<form action="/" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="file">HTML file to be translated</label>
+    <div>
+      <input type="file" name="file" id="file">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="domain">E-shop domain:</label>
+    <input type="text" name="domain" id="domain" value="{{domain}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Translate</button>
+  </div>
+</form>
+
+<h2>Step 3 - Get translated files</h2>
+
+You can then download translated invoices in HTML or PDF format.
+
+{% endblock %}

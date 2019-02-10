@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{filename}}</h1>
+
+<ul>
+  <li><a href="{{orig_html_url}}" target="_blank">Original HTML</a></li>
+  <li><a href="{{translated_html_url}}" target="_blank">Translated HTML</a></li>
+  <li><a href="{{translated_pdf_url}}" target="_blank">Translated PDF</a></li>
+</ul>
+
+{% endblock %}

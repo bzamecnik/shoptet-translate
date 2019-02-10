@@ -90,3 +90,13 @@ It will download the invoice HTML, clean it up, translate from Czech to English
 and convert to PDF. By default it's saved to `./data/INVOICE_TYPE-INVOICE_ID.html`.
 
 If you need to change the translations, modify `data/translations.csv`.
+
+### Web application
+
+Development:
+
+```
+FLASK_ENV=debug FLASK_APP=shoptet_translate/webapp.py flask run
+```
+
+Open: http://localhost:5000
