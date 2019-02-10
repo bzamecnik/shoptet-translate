@@ -26,13 +26,13 @@ sudo apt-get install wkhtmltopdf
 ## Installation
 
 ```
-git clone https://github.com/bzamecnik/shoptet-invoice-en.git
+git clone https://github.com/bzamecnik/shoptet-translate.git
 
 # or
 
-git@github.com:bzamecnik/shoptet-invoice-en.git
+git@github.com:bzamecnik/shoptet-translate.git
 
-cd shoptet-invoice-en/
+cd shoptet-translate/
 pip install -r requirements.txt
 
 mkvirtualenv shoptet_translate
