@@ -42,9 +42,9 @@ class InvoiceTranslator:
             html_cz = self.cleanup_func(html_cz)
         html_en = TextTranslator().translate(html_cz)
         self.write_invoice_html(html_en, html_en_path)
+        print('Translated to HTML:', html_en_path)
         pdfkit.from_string(html_en, pdf_en_path)
-
-        print('Translated to:', pdf_en_path)
+        print('Translated to PDF:', pdf_en_path)
 
         return pdf_en_path
 
@@ -82,26 +82,3 @@ class TextTranslator:
                 string_tag.parent.string = string_tag.replace(row['cz'], row['en'])
         html_en = soup.prettify()
         return html_en
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(
-        'shoptet_translate',
-        description='Translates Shoptet invoices from Czech (HTML) to English (PDF)')
-    parser.add_argument('input_file', metavar='INPUT_FILE', help='Source invoice path (HTML)')
-    parser.add_argument('-c', '--cleanup', action='store_true',
-        help='First clean up the HTML page (remove scripts, make links absolute)')
-    parser.add_argument(
-        '-d', '--domain', default='https://eshop.svet-3d-tisku.cz', help='Domain')
-    return parser.parse_args()
-
-
-def main():
-    args = parse_args()
-    cleanup_func = partial(cleanup_html, domain=args.domain) if args.cleanup else None
-    pdf_en_path = InvoiceTranslator(cleanup_func).translate(args.input_file)
-    print('Translated to:', pdf_en_path)
-
-
-if __name__ == '__main__':
-    main()

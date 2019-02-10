@@ -54,13 +54,36 @@ wkhtmltopdf http://www.google.com output.pdf
 
 ## Usage
 
+### Downloading from the web by hand
+
+Login to Shoptet admin UI in your browser, go to the page with the document to
+be translated. Find button Print (`Tisk - standardní` or `Vytisknout
+objednávku`), click Save as to download the file locally. Move the file to a
+location where `shoptet_translate` can see it.
+
+```bash
+# with default domain
+$ shoptet_translate invoice.html
+
+# or specifying the domain
+$ shoptet_translate invoice.html -d https://example.com
+```
+
+It will clean up the HTML page from scripts and fix links to images, translate
+from Czech to English, save as HTML and convert to PDF as well. Output:
+
+- invoice-en.pdf
+- invoice-en.html
+
+### Downloading from web by the script
+
 Login to Shoptet admin in your browser and find out the PHP session id and
 server id of the sticky session.
 
 Then call the script with the numeric invoice id and the login identifiers.
 
-```
-shoptet_translate -i INVOICE_ID -t INVOICE_TYPE -p PHPSESSID -s SRV_ID
+```bash
+shoptet_translate_from_web -i INVOICE_ID -t INVOICE_TYPE -p PHPSESSID -s SRV_ID
 ```
 
 It will download the invoice HTML, clean it up, translate from Czech to English

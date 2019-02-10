@@ -36,5 +36,6 @@ setup(name='shoptet_translate',
       entry_points={
           'console_scripts': [
               'shoptet_translate = shoptet_translate.__main__:main',
+              'shoptet_translate_from_web = shoptet_translate.__main__:download_and_translate',
           ]
       })

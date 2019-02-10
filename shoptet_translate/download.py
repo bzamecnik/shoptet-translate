@@ -54,11 +54,10 @@ def main():
         'SRV_ID': args.server_id,
         'PHPSESSID': args.php_session_id,
     }
-    html_cz_path = download_invoice(
+    download_invoice(
         args.invoice_id, args.invoice_type,
         args.output, args.domain,
         cookies)
-    print('Downloaded to:', html_cz_path)
 
 
 if __name__ == '__main__':
