@@ -1,4 +1,5 @@
 import argparse
+from functools import partial
 import os
 import re
 import unicodedata
@@ -7,12 +8,15 @@ import bs4
 import pandas as pd
 import pdfkit
 
-import shoptet_translate
+from shoptet_translate.cleanup import cleanup_html
 
 root_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class InvoiceTranslator:
+    def __init__(self, cleanup_func=None):
+        self.cleanup_func = cleanup_func
+
     @staticmethod
     def read_invoice_html(path):
         with open(path) as f:
@@ -34,6 +38,8 @@ class InvoiceTranslator:
         pdf_en_path = os.path.join(directory, '%s-en.pdf' % name)
 
         html_cz = self.read_invoice_html(input_file)
+        if self.cleanup_func is not None:
+            html_cz = self.cleanup_func(html_cz)
         html_en = TextTranslator().translate(html_cz)
         self.write_invoice_html(html_en, html_en_path)
         pdfkit.from_string(html_en, pdf_en_path)
@@ -83,12 +89,17 @@ def parse_args():
         'shoptet_translate',
         description='Translates Shoptet invoices from Czech (HTML) to English (PDF)')
     parser.add_argument('input_file', metavar='INPUT_FILE', help='Source invoice path (HTML)')
+    parser.add_argument('-c', '--cleanup', action='store_true',
+        help='First clean up the HTML page (remove scripts, make links absolute)')
+    parser.add_argument(
+        '-d', '--domain', default='https://eshop.svet-3d-tisku.cz', help='Domain')
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    pdf_en_path = InvoiceTranslator().translate(args.input_file)
+    cleanup_func = partial(cleanup_html, domain=args.domain) if args.cleanup else None
+    pdf_en_path = InvoiceTranslator(cleanup_func).translate(args.input_file)
     print('Translated to:', pdf_en_path)
 
 
