@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='shoptet_translate',
-      version='0.0.6',
+      version='0.0.7',
       description='Translate Shoptet invoices',
       url='https://github.com/bzamecnik/shoptet-invoice-en',
       author='Bohumir Zamecnik',
