@@ -100,3 +100,19 @@ FLASK_ENV=debug FLASK_APP=shoptet_translate/webapp.py flask run
 ```
 
 Open: http://localhost:5000
+
+## Running via Docker Compose
+
+```
+# dev
+docker-compose up
+
+# production
+docker-compose -p s3dt_shoptet_translate_prod up -d
+```
+
+Upgrade:
+
+```
+docker-compose down && docker-compose up
+```

@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  web:
+    image: s3dt-shoptet-translate
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # TODO: use gunicorn
+    command:["flask", "run", "--host", "0.0.0.0"]
+    #command: ["gunicorn", "-b", "0.0.0.0:80", "app:app", "--log-file", "-"]
+    ports:
+      #- "$WEB_PORT:80"
+      - "5000:5000"
+    environment:
+      - FLASK_APP=shoptet_translate/webapp.py
+    restart: always
